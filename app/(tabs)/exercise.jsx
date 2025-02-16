@@ -1,13 +1,11 @@
-import NotFoundScreen from '@/app-example/app/+not-found';
+import { navigate } from 'expo-router/build/global-state/routing';
 import React  from 'react';
 import{ StyleSheet,
-        Alert,
         Text,
         View,
         FlatList,
         ScrollView,
         TouchableHighlight,
-        TouchableOpacity
       } from 'react-native';
 
 import HTMLView from 'react-native-htmlview';
@@ -21,7 +19,7 @@ const DATA = [
     
      <p>• Email</p>
      <p>• Password</p>
-  </div>`
+  </div>`,
   },
   {
     id:"2",
@@ -33,27 +31,34 @@ const DATA = [
     <p>• Name</p>
     <p>• Email</p>
     <p>• Password</p>
-  </div>`
+  </div>`,
+    
   },
   {
     id:"3",
     title:"Exercise 5",
-    description: ""
+    description: "",
+    
   },
   {
     id:"4",
     title:"Exercise 6",
-    description: ""
+    description: "",
+    
   },
   
 ];
 
 const Item = ({title, description}) => {
-  const onPress = () => {
-    console.log("1");
-  }
+  const handlePress = (title) => {
+    if(title == "Exercise 3") {
+      navigation.navigate("/auth/login");
+    } else if(title == "Exercise 4") {
+      navigation.navigate("auth/signup");
+    }
+  } 
   return( 
-    <TouchableHighlight>
+    <TouchableHighlight onPress={() => handlePress(title)}>
       <View style={styles.item}>
         <Text style={styles.title}>{title}</Text>
         <HTMLView value={description} addLineBreaks={false} stylesheet={stylehtml}/>
