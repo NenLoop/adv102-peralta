@@ -37,7 +37,8 @@ const DATA = [
   {
     id:"3",
     title:"Exercise 5",
-    description: "",
+    description: `<div><p>Create useState counter</p>
+<p>Create useEffect stopwatch</p></div>`,
     
   },
   {
@@ -53,8 +54,8 @@ const Item = ({title, description}) => {
   const handlePress = (title) => {
     if(title == "Exercise 3") {
       navigation.navigate("/auth/login");
-    } else if(title == "Exercise 4") {
-      navigation.navigate("auth/signup");
+    } else if(title == "Exercise 5") {
+      navigation.navigate("/hooks/navigateTo");
     }
   } 
   return( 

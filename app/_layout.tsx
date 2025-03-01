@@ -10,6 +10,10 @@ export default function RootLayout() {
         headerShown: false,
 
       }}/>
+      <Stack.Screen name="hooks" options={{
+        headerShown: false,
+
+      }}/>
     </Stack>
   );
 }

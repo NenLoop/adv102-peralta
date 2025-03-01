@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Text, TextInput, TouchableHighlight, View, StyleSheet } from 'react-native'
+import { Text, TextInput, TouchableHighlight, View, StyleSheet, Button, Image } from 'react-native'
+import * as ImagePicker from "expo-image-picker"
 import { useFonts } from "expo-font"
 
 export default function Login() {
@@ -15,6 +16,22 @@ export default function Login() {
         console.log("empty");
       }
     }
+    const [image, setImage] = useState(null);
+    const pickImage = async () => {
+
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['images', 'videos'],
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+
+      console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+    }
     return (
       <View style={styles.container}>
     
@@ -24,7 +41,8 @@ export default function Login() {
        
         
       
-
+        <Button title="Pick an image from camera roll" onPress={pickImage}/>
+        {image && <Image source={{ uri: image}} style={styles.images} />}
         <TextInput style={styles.input}
         onChangeText={setEmail}
         placeholder='Enter Email Address'
@@ -90,5 +108,9 @@ const styles = StyleSheet.create({
     paddingLeft: "110px",
     paddingRight: '110px',
     marginTop: 15,
+  },
+  images: {
+    width: 200,
+    height: 200,
   }
 })
