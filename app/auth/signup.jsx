@@ -3,7 +3,6 @@ import { Text, TextInput, TouchableHighlight, View, StyleSheet, Image, Touchable
 import * as ImagePicker from "expo-image-picker"
 import { useFonts } from "expo-font"
 import {Asset} from "expo-asset"
-import image from '../../assets/images/favicon.png'
 
 export default function SignUp() {
     const [loaded, error] = useFonts({
@@ -15,7 +14,7 @@ export default function SignUp() {
 
 
     const handlePress= () => {
-      if( name == '' && email == '' && password == ''){
+      if( image == defaultImg && name == '' && email == '' && password == ''){
         console.log("empty");
       }
     }
@@ -130,8 +129,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#white',
     paddingTop: '10px',
     paddingBottom: '10px',
-    paddingLeft: "60px",
-    paddingRight: '60px',
+    paddingLeft: "50px",
+    paddingRight: '50px',
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
   }
 })

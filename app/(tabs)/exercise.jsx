@@ -50,12 +50,19 @@ const DATA = [
   
 ];
 
-const Item = ({title, description}) => {
-  const handlePress = (title) => {
-    if(title == "Exercise 3") {
-      navigation.navigate("/auth/login");
-    } else if(title == "Exercise 5") {
-      navigation.navigate("/hooks/navigateTo");
+const Item = ({id ,title, description}) => {
+  const handlePress = (id) => {
+    switch(id) {
+      case 1:
+        navigation.navigate("/auth/login");
+        break;
+      case 2:
+        navigation.navigate("/auth/signup");
+        break;
+      case 3:
+        navigation.navigate("/hooks/navigateTo");
+        break;
+      default:
     }
   } 
   return( 
@@ -72,7 +79,7 @@ export default function App() {
   
 
 const renderItem = ({item})=>( 
-  <Item title={item.title} description={item.description}/>
+  <Item id={item.id} title={item.title} description={item.description}/>
 );
 return (
   <ScrollView style={styles.container}>
