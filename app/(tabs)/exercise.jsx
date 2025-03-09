@@ -56,10 +56,10 @@ const Item = ({id ,title, description}) => {
         router.push("/auth/login");
         break;
       case '2':
-        navigation.navigate("/auth/signup");
+        router.push("/auth/signup");
         break;
       case '3':
-        navigation.navigate("/hooks/navigateTo");
+        router.push("/hooks/navigateTo");
         break;
       default:
     }

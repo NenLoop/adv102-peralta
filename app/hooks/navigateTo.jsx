@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { View, Text, TouchableOpacity, StyleSheet} from "react-native"
 import { useFonts } from "expo-font"
+import { router } from "expo-router";
 
 export default function Effect() {
     const [loaded, error] = useFonts({
@@ -8,7 +9,7 @@ export default function Effect() {
     })
 
     function navigate(destination) {
-        navigation.navigate(destination);
+        router.push(destination);
     }
 
     
