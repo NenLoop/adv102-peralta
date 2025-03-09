@@ -1,4 +1,3 @@
-import { navigate } from 'expo-router/build/global-state/routing';
 import React  from 'react';
 import{ StyleSheet,
         Text,
@@ -7,7 +6,7 @@ import{ StyleSheet,
         ScrollView,
         TouchableHighlight,
       } from 'react-native';
-
+import { router } from 'expo-router';
 import HTMLView from 'react-native-htmlview';
 
 const DATA = [
@@ -53,20 +52,20 @@ const DATA = [
 const Item = ({id ,title, description}) => {
   const handlePress = (id) => {
     switch(id) {
-      case 1:
-        navigation.navigate("/auth/login");
+      case '1':
+        router.push("/auth/login");
         break;
-      case 2:
+      case '2':
         navigation.navigate("/auth/signup");
         break;
-      case 3:
+      case '3':
         navigation.navigate("/hooks/navigateTo");
         break;
       default:
     }
   } 
   return( 
-    <TouchableHighlight onPress={() => handlePress(title)}>
+    <TouchableHighlight onPress={() => handlePress(id)}>
       <View style={styles.item}>
         <Text style={styles.title}>{title}</Text>
         <HTMLView value={description} addLineBreaks={false} stylesheet={stylehtml}/>
