@@ -61,6 +61,8 @@ const Item = ({id ,title, description}) => {
       case '3':
         router.push("/hooks/navigateTo");
         break;
+      case '4':
+        router.push("/crud/Product");
       default:
     }
   } 

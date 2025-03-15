@@ -36,7 +36,7 @@ export default function SignUp() {
     }
     }
     const removeImage = () => {
-        setImage(defaultImg);
+        setImage(defaultImg); 
     }
     return (
       <View style={styles.container}>
