@@ -43,7 +43,7 @@ const DATA = [
   {
     id:"4",
     title:"Exercise 6",
-    description: "",
+    description: `<div><p>Create a CRUD application</p></div>`,
     
   },
   

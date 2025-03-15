@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Text, TextInput, TouchableHighlight, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import * as ImagePicker from "expo-image-picker"
+import * as ImagePicker from "expo-image-picker";
+import { router } from 'expo-router';
 import { useFonts } from "expo-font"
 import {Asset} from "expo-asset"
 
@@ -16,6 +17,8 @@ export default function SignUp() {
     const handlePress= () => {
       if( image == defaultImg && name == '' && email == '' && password == ''){
         console.log("empty");
+      } else {
+        router.push("./login");
       }
     }
     const defaultImg = Asset.fromModule(require('../../assets/images/profile-icon.png')).uri
